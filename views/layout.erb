@@ -6,16 +6,25 @@
     <link href="/css/style.css" rel="stylesheet" type="text/css">
   </head>
   <body>
-    <header>
-      <h1>My Favorite Links</h1>
-    </header>
+    <div class="wrapper">
+      <header>
+        <h1>My Favorite Links</h1>
+      </header>
 
-    <section class="main">
-      <%= yield %>
-    </section>
+      <nav>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/links">Show All</a></li>
+        </ul>
+      </nav>
 
-    <footer>
-      Copyright <%= Date.today.year %> Luke A Chase
-    </footer>
+      <section class="main">
+        <%= yield %>
+      </section>
+
+      <footer>
+        Copyright <%= Date.today.year %> Luke A Chase
+      </footer>
+    </div>
   </body>
 </html>
