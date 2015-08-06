@@ -1,0 +1,37 @@
+<h1><%= @title %>Favorite Links</h1>
+<nav>
+  <ul>
+    <li><a href="/">Home</a></li>
+    <li><a href="/links">Show All</a></li>
+  </ul>
+</nav>
+
+<table>
+  <% if @detailed %>
+    <tr>
+      <th>Name</th>
+      <th>URL</th>
+      <th>Description</th>
+    </tr>
+    <% tablerows = @results.collect do |row| %>
+        <tr><td><%= row[0] %></td><td><%= row[1] %></td><td><%= row[2] %></td></tr>
+    <% end %>
+  <% else %>
+    <tr>
+      <th>Name</th>
+    </tr>
+    <% tablerows = @results.collect do |row| %>
+      <tr><td><a href="/links/<%= row[1] %>"><%= row[0] %></a></td></tr>
+    <% end %>
+  <% end %>
+</table>
+
+<fieldset>
+  <legend>Add link</legend>
+  <form action="/links" method="POST">
+    <label>Name: <input type="text" name="name"></label>
+    <label>URL: <input type="text" name="url"></label>
+    <label>Description: <input type="text" name="desc"></label>
+    <input type="submit" name="Add Link">
+  </form>
+</fieldset>
